@@ -16,7 +16,7 @@ class NekoClient {
          * The API header for the client.
          * @type {string[]}
          */
-        this.token = options.token;
+        this.key = options.key;
         //misc members
         this.apiUrl = "https://nekos.life/api";
         //error checking options
