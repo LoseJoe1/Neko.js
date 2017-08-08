@@ -1,0 +1,26 @@
+{
+  "name": "neko.js",
+  "version": "0.1.0",
+  "description": "A API Wrapper for Neko.life",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrJacz/Neko.js.git"
+  },
+  "keywords": [
+    "nodeJS",
+    "neko"
+  ],
+  "author": "Jacz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrJacz/Neko.js/issues"
+  },
+  "homepage": "https://github.com/MrJacz/Neko.js#readme",
+  "dependencies": {
+    "snekfetch": "^3.2.6"
+  }
+}
