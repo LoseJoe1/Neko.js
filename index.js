@@ -22,16 +22,6 @@ class NekoClient {
         //error checking options
         if (options.key === undefined) throw Error('Please specify a header key in the client options.');
         if (typeof options.key !== `string`) throw Error('Client key must be a string.');
-        //binding all functions to (this)
-        this.pat.bind(this);
-        this.hug.bind(this);
-        this.kiss.bind(this);
-        this.neko.bind(this);
-        this.why.bind(this);
-        this.LewdNeko.bind(this);
-        this.lizard.bind(this);
-        this._get.bind(this);
-        this._gett.bind(this);
     }
 
     pat() {
