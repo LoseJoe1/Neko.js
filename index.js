@@ -1,4 +1,4 @@
-const { get } = require('snekfetch');
+const snek = require('snekfetch');
 let packageData = require('./package.json');
 let headerUserAgent = `${packageData.name} (V${packageData.version})`;
 
@@ -17,11 +17,21 @@ class NekoClient {
          * @type {string[]}
          */
         this.key = options.key;
-        //misc members
+
         this.apiUrl = "https://nekos.life/api";
         //error checking options
-        if (options.key === undefined) throw Error('Please specify a token in the client options.');
+        if (options.key === undefined) throw Error('Please specify a header key in the client options.');
         if (typeof options.key !== `string`) throw Error('Client key must be a string.');
+        //binding all functions to (this)
+        this.pat.bind(this);
+        this.hug.bind(this);
+        this.kiss.bind(this);
+        this.neko.bind(this);
+        this.why.bind(this);
+        this.LewdNeko.bind(this);
+        this.lizard.bind(this);
+        this._get.bind(this);
+        this._gett.bind(this);
     }
 
     pat() {
@@ -37,31 +47,42 @@ class NekoClient {
     }
 
     neko() {
-        return this._get(`/neko`); 
+        return this._gett(`/neko`);
     }
 
     why() {
-        return this._get(`/why`);
+        return this._gett(`/why`);
     }
 
     LewdNeko() {
-        return this._get(`/lewd/neko`);
+        return this._gett(`/lewd/neko`);
     }
 
     lizard() {
-        return this._get(`/lizard`);
+        return this._gett(`/lizard`);
     }
 
-    
-
-    _get(endpoint, query) {
+    _get(endpoint) {
         return new Promise((resolve, reject) => {
-            get((this.apiUrl) + endpoint)
-                .set("key", this.key)
-                .query(query || {})
+            snek.get(this.apiUrl + endpoint)
+                .set("Key", this.key)
                 .then(res => {
                     if (res.status !== 200) return reject(res);
                     return resolve(res.body);
+                }).catch((err) => {
+                    reject(err);
+                });
+        });
+    }
+    _gett(endpoint) {
+        return new Promise((resolve, reject) => {
+            snek.get(this.apiUrl + endpoint)
+                .set("Key", this.key)
+                .then(res => {
+                    if (res.status !== 200) return reject(res);
+                    return resolve(res.body);
+                }).catch((err) => {
+                    reject(err);
                 });
         });
     }
