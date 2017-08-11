@@ -4,7 +4,7 @@ let nekoclient = new neko.Client({
 key: "ur header key" // You cannot use pat, hug and kiss without a key
 });
 
-    // Asynchronous examples.
+    // Asynchronous(Async/await) examples.
 
     let hug = await nekoclient.hug();
     console.log(hug.url); // logs to console the url for hug gif 
